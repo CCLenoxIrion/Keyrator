@@ -29,19 +29,5 @@ class Program
         // ApiKeyValidatorService holen
         var validatorService = serviceProvider.GetRequiredService<IApiKeyValidatorService>();
 
-        // Beispiel: API-Schlüssel generieren
-        string generatedKey = validatorService.GenerateKey();
-        logger.LogInformation("Generierter API-Schlüssel: {Key}", generatedKey);
-        Console.WriteLine($"Generierter API-Schlüssel: {generatedKey}");
-
-        // Beispiel: API-Schlüssel validieren
-        var validResult = validatorService.ValidateKey(generatedKey);
-        logger.LogInformation("Validierung (gültig): {Message} (IsValid: {IsValid})", validResult.Message, validResult.IsValid);
-        Console.WriteLine($"Validierung (gültig): {validResult.Message} (IsValid: {validResult.IsValid})");
-
-        // Beispiel: Ungültigen Schlüssel validieren
-        var invalidResult = validatorService.ValidateKey("invalid_key");
-        logger.LogInformation("Validierung (ungültig): {Message} (IsValid: {IsValid})", invalidResult.Message, invalidResult.IsValid);
-        Console.WriteLine($"Validierung (ungültig): {invalidResult.Message} (IsValid: {invalidResult.IsValid})");
     }
 }
