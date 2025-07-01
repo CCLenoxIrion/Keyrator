@@ -10,6 +10,7 @@ public static class ServiceCollectionExtensions
     {
         services.Configure<ApiKeyValidator.Core.Configuration.ApiKeyConfig>(configuration.GetSection("ApiKey"));
         services.AddScoped<IApiKeyValidatorService, ApiKeyValidatorService>();
+        services.AddLogging();
         return services;
     }
 }
